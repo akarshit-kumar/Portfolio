@@ -1,0 +1,84 @@
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: left;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.responsibility-card {
+    padding: 1.5rem;
+}
+
+.resp-role {
+    color: var(--text-accent);
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.resp-org {
+    color: var(--text-gold);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resp-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.cert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.cert-icon {
+    font-size: 2rem;
+    background: rgba(251, 191, 36, 0.1);
+    padding: 0.5rem;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.cert-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.cert-issuer,
+.cert-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.cert-details {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .achievements-container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,16 @@
+.contact-section {
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.contact-text {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.contact-btn {
+  font-size: 1.25rem;
+  padding: 1rem 2.5rem;
+}
