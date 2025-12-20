@@ -4,9 +4,9 @@ import './Skills.css';
 
 const skillsData = {
   "Languages": ["C++", "Python", "JavaScript", "Java"],
-  "Frameworks": ["React", "Next.js"],
+  "Frameworks": ["React", "Next.js", "Spring Boot", "PySpark"],
   "Developer Tools": ["HTML", "CSS", "Git", "VS Code"],
-  "Cloud/Databases": ["SQL"],
+  "Cloud/Databases": ["AWS", "Kubernetes", "Databricks", "PostgreSQL", "SQL"],
   "Coursework": ["DSA", "DBMS", "Operating Systems"],
   "Soft Skills": ["Communication", "Leadership", "Problem Solving"],
   "Interests": ["Sudoku", "Chess", "Cricket", "Kabaddi"]

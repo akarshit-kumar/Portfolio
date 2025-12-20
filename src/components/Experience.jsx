@@ -7,7 +7,7 @@ const experienceData = [
         company: "L&T Technology Services",
         role: "Engineer",
         period: "Sept 2024 - Present",
-        description: "Joined as an Engineer focusing on innovation and technology solutions."
+        description: "Working with React, Spring Boot, AWS deployment, Kubernetes, Databricks (pipelines), and PySpark. Currently engaged in a new project as a Frontend Developer using PostgreSQL."
     },
     {
         company: "VERZEO",
