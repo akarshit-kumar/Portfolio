@@ -1,17 +1,20 @@
 .footer {
-  padding: 3rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 4rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
 }
 
 .copyright {
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .footer-sub {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  font-family: var(--font-main);
 }

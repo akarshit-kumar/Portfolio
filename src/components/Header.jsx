@@ -29,7 +29,7 @@ const Header = () => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
         <div className="logo">
-          A<span className="text-accent">.</span>
+          Akarshit<span className="text-accent">.</span>
         </div>
 
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
@@ -42,11 +42,11 @@ const Header = () => {
           </ul>
         </nav>
 
-        <div className="hamburger" onClick={toggleMenu}>
+        <button className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle navigation menu">
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
-        </div>
+        </button>
       </div>
     </header>
   );

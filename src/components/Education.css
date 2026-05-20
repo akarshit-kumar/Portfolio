@@ -1,60 +1,109 @@
+.education-section {
+  background-color: var(--bg-secondary);
+}
+
 .education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
 }
 
 .education-card {
-    position: relative;
-    overflow: hidden;
-    padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.education-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--accent-gradient);
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.edu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--primary-color);
 }
 
 .edu-period {
-    display: inline-block;
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    background: rgba(59, 130, 246, 0.1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
 }
 
 .edu-school {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .edu-degree {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
 }
 
-.edu-score {
-    font-weight: 700;
-    color: var(--text-gold);
+.edu-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
+/* CGPA / Percentage Badge */
+.edu-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  align-self: flex-start;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
 }
 
-.text-center {
-    text-align: center;
+.score-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.score-value {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.education-card:hover .edu-icon-container {
+  background: var(--accent-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+@media (max-width: 576px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
 }
