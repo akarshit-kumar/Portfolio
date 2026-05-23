@@ -5,27 +5,27 @@ const Hero = () => {
   return (
     <section className="hero-section" id="home">
       <div className="grid-overlay"></div>
-      
+
       <div className="container hero-container animate-fade-in">
         <div className="hero-content">
           <div className="hero-badge-container">
             <span className="status-badge">Engineer at L&T Technology Services</span>
           </div>
-          
+
           <h1 className="hero-title">
             Hi, I'm <span className="text-gradient">Akarshit Kumar</span>
           </h1>
-          
+
           <h2 className="hero-subtitle">
             Full Stack Software Engineer
           </h2>
-          
+
           <p className="hero-description">
-            B.Tech Information Technology graduate from <strong>NIT Srinagar</strong>. 
-            Designing and deploying robust full-stack applications with React, Spring Boot, GraphQL, and AWS. 
+            B.Tech Information Technology graduate from <strong>NIT Srinagar</strong>.
+            Designing and deploying robust full-stack applications with React, Spring Boot, GraphQL, and AWS.
             Passionate about building scalable backend services, optimizing data pipelines with Databricks, and resolving real-world challenges.
           </p>
-          
+
           <div className="hero-cta-group">
             <a href="#projects" className="btn btn-primary">
               Explore Projects
@@ -44,12 +44,12 @@ const Hero = () => {
             <a href="https://github.com/akarshit-kumar" target="_blank" rel="noopener noreferrer" title="GitHub" className="social-icon-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </a>
-            <a href="https://www.linkedin.com/in/akarshit-kumar/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="social-icon-link">
+            <a href="https://www.linkedin.com/in/akarshit-kumar-890aa5244/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="social-icon-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
           </div>
         </div>
-        
+
         <div className="hero-visual">
           <div className="visual-mesh"></div>
           <div className="visual-glow glow-1"></div>
