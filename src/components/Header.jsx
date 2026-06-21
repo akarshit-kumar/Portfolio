@@ -17,14 +17,13 @@ const Header = () => {
   useEffect(() => {
     const handleScrollSpy = () => {
       const sections = ['home', 'education', 'experience', 'projects', 'skills', 'achievements', 'contact'];
-      const scrollPosition = window.scrollY + 250;
 
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const rect = el.getBoundingClientRect();
+          // If the section occupies the active reading zone (280px from top of viewport)
+          if (rect.top <= 280 && rect.bottom >= 280) {
             setActiveSection(section);
             break;
           }
@@ -36,6 +35,7 @@ const Header = () => {
     handleScrollSpy();
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, []);
+
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
