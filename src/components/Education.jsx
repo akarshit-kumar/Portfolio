@@ -5,7 +5,7 @@ const educationData = [
     school: "National Institute Of Technology (NIT), Srinagar",
     period: "2020 - 2024",
     degree: "B.Tech in Information Technology",
-    score: "CGPA: 7.65",
+    // score: "CGPA: 7.65",
     description: "Rigorous training in computer science, systems architecture, data structures, algorithms, and advanced software engineering methodologies."
   },
   {
@@ -35,7 +35,7 @@ const Education = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {educationData.map((item, index) => (
             <div key={index} className="glass-card relative bg-white/[0.015] backdrop-blur-xl border border-white/5 rounded-2xl p-8 hover:border-cyan-500/25 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6),0_0_30px_rgba(6,182,212,0.15)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full group">
-              
+
               <div className="flex justify-between items-center mb-6">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-violet-500/[0.06] border border-violet-500/15 text-violet-400 group-hover:bg-gradient-to-tr group-hover:from-violet-500 group-hover:to-cyan-400 group-hover:text-white group-hover:border-transparent group-hover:scale-[1.08] group-hover:-rotate-6 transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>
