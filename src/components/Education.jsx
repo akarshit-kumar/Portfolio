@@ -12,14 +12,14 @@ const educationData = [
     school: "SP Smart School, Sarore",
     period: "2020",
     degree: "JKBOSE - Senior Secondary (Class XII)",
-    score: "Percentage: 78.8%",
+    // score: "Percentage: 78.8%",
     description: "Focused on core sciences and mathematics, building a robust analytical and quantitative foundation."
   },
   {
     school: "S.A.L.E.G School, Bishnah",
     period: "2018",
     degree: "JKBOSE - Secondary (Class X)",
-    score: "Percentage: 73.2%",
+    // score: "Percentage: 73.2%",
     description: "Acquired foundational knowledge across diverse academic disciplines with excellent performance."
   }
 ];
