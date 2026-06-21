@@ -5,13 +5,15 @@ const curatedReposMetadata = {
     title: "Payment Gateway Sandbox",
     date: "Dec 2023",
     description: "Interactive full-stack payment sandbox for learning core system design patterns, transaction processing, and integration mechanics.",
-    tech: ["React", "Express", "Stripe API", "Tailwind CSS", "Webhooks"]
+    tech: ["React", "Express", "Stripe API", "Tailwind CSS", "Webhooks"],
+    liveUrl: "https://payment-gateway-playground.vercel.app/"
   },
   'Portfolio': {
     title: "Developer Portfolio",
     date: "Present",
     description: "A high-performance modern developer portfolio with premium theme options, interactive scrolling anchors, and dynamic API bindings.",
-    tech: ["React", "Vite", "Tailwind CSS", "Vercel Hosting"]
+    tech: ["React", "Vite", "Tailwind CSS", "Vercel Hosting"],
+    liveUrl: "https://akarshit-kumar.vercel.app/"
   },
   'ecommerce': {
     title: "E-Commerce Platform",
@@ -46,6 +48,7 @@ const fallbackProjects = Object.keys(curatedReposMetadata).map(key => ({
   description: curatedReposMetadata[key].description,
   tech: curatedReposMetadata[key].tech,
   link: `https://github.com/akarshit-kumar/${key}`,
+  liveUrl: curatedReposMetadata[key].liveUrl || null,
   stars: 0,
   forks: 0,
   pushed_at: ""
@@ -103,6 +106,7 @@ const Projects = () => {
               description: curated ? curated.description : (repo.description || 'No description available.'),
               tech: curated ? curated.tech : (repo.language ? [repo.language] : ['Software Project']),
               link: repo.html_url,
+              liveUrl: curated ? curated.liveUrl : null,
               stars: repo.stargazers_count,
               forks: repo.forks_count,
               pushed_at: repo.pushed_at
@@ -192,11 +196,17 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-white/5 mt-auto">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-white transition-colors duration-200 group/link">
-                    View Code Repository
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover/link:translate-x-1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <div className="pt-4 border-t border-white/5 mt-auto flex items-center justify-between gap-4">
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition-colors duration-200 group/link">
+                    View Code
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover/link:translate-x-0.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-white transition-colors duration-200 group/live">
+                      Live Preview
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                  )}
                 </div>
               </div>
             ))
