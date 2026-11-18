@@ -36,6 +36,39 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, []);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Close drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  // Close drawer if resized to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -81,35 +114,68 @@ const Header = () => {
 
         {/* Hamburger Toggle */}
         <button 
-          className="flex md:hidden flex-col justify-center items-center gap-1.5 w-10 h-10 rounded-full border border-white/5 hover:border-white/15 bg-transparent hover:bg-white/[0.04] cursor-pointer transition-all z-50" 
+          className={`flex md:hidden flex-col justify-center items-center gap-1.5 w-10 h-10 rounded-full border border-white/5 hover:border-white/15 bg-transparent hover:bg-white/[0.04] cursor-pointer transition-all ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} 
           onClick={toggleMenu} 
-          aria-label="Toggle navigation menu"
+          aria-label="Open navigation menu"
         >
-          <div className={`w-[18px] h-[2px] bg-white rounded-full transition-all duration-300 ${isOpen ? 'translate-y-2 rotate-45 bg-violet-400' : ''}`} />
-          <div className={`w-[18px] h-[2px] bg-white rounded-full transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-          <div className={`w-[18px] h-[2px] bg-white rounded-full transition-all duration-300 ${isOpen ? '-translate-y-2 -rotate-45 bg-violet-400' : ''}`} />
+          <div className="w-[18px] h-[2px] bg-white rounded-full transition-all duration-300" />
+          <div className="w-[18px] h-[2px] bg-white rounded-full transition-all duration-300" />
+          <div className="w-[18px] h-[2px] bg-white rounded-full transition-all duration-300" />
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer - Placed outside the centered pill but inside the header wrapper */}
-      <nav className={`fixed top-0 h-screen w-[290px] bg-[#040210]/98 backdrop-blur-[25px] border-l border-white/10 shadow-[20px_0_60px_rgba(0,0,0,0.8)] px-10 pt-28 flex flex-col transition-all duration-400 ease-in-out md:hidden ${isOpen ? 'right-0' : '-right-full'}`}>
-        <ul className="flex flex-col gap-8 w-full">
-          {navLinks.map((link) => {
-            const sectionId = link.href.substring(1);
-            const isActive = activeSection === sectionId;
-            return (
-              <li key={link.name} className="w-full">
-                <a 
-                  href={link.href} 
-                  onClick={() => setIsOpen(false)}
-                  className={`block text-lg font-semibold tracking-wide py-2 border-b border-white/[0.03] transition-all duration-200 ${isActive ? 'text-violet-400' : 'text-slate-400 hover:text-white'}`}
-                >
-                  {link.name}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+      {/* Mobile Drawer Backdrop Overlay */}
+      <div 
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Navigation Drawer */}
+      <nav 
+        className={`fixed top-0 h-screen w-[290px] bg-[#040210]/98 backdrop-blur-[25px] border-l border-white/10 shadow-[20px_0_60px_rgba(0,0,0,0.8)] px-8 pt-7 pb-10 flex flex-col justify-between overflow-y-auto transition-all duration-400 ease-in-out md:hidden z-50 ${isOpen ? 'right-0' : '-right-full'}`}
+      >
+        <div>
+          {/* Sidebar Header with Brand & Constant Close 'X' Button */}
+          <div className="flex items-center justify-between pb-6 mb-8 border-b border-white/[0.08]">
+            <a 
+              href="#home" 
+              onClick={() => setIsOpen(false)}
+              className="text-xl font-extrabold tracking-tight text-white select-none"
+            >
+              Akarshit<span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent font-black">.</span>
+            </a>
+
+            <button 
+              onClick={() => setIsOpen(false)} 
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 hover:border-white/20 bg-white/[0.04] hover:bg-white/[0.08] cursor-pointer transition-all text-violet-400 hover:text-white" 
+              aria-label="Close navigation menu"
+            >
+              <svg className="w-5 h-5 text-violet-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <ul className="flex flex-col gap-6 w-full">
+            {navLinks.map((link) => {
+              const sectionId = link.href.substring(1);
+              const isActive = activeSection === sectionId;
+              return (
+                <li key={link.name} className="w-full">
+                  <a 
+                    href={link.href} 
+                    onClick={() => setIsOpen(false)}
+                    className={`block text-lg font-semibold tracking-wide py-2 border-b border-white/[0.03] transition-all duration-200 ${isActive ? 'text-violet-400 font-bold' : 'text-slate-400 hover:text-white'}`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </nav>
     </header>
   );
